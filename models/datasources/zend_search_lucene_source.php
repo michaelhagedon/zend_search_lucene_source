@@ -137,9 +137,12 @@ class ZendSearchLuceneSource extends DataSource {
     	}
 		
 		$limit = 1000;
-		if (!empty($queryData['limit'])) {
-			$limit = $queryData['limit'];
-		}
+//  The following 3 lines break pagination. And since I can't figure out how to make Zend Lucene support
+//    offset, we'll just have to get all the results for pagination to work.
+//    
+//		if (!empty($queryData['limit'])) {
+//			$limit = $queryData['limit'];
+//		}
 
     	$query = $this->__parseQuery($queryData);
 
